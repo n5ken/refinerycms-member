@@ -1,4 +1,4 @@
-class DeviseCreateMembers < ActiveRecord::Migration
+class CreateMembers < ActiveRecord::Migration
   def self.up
     create_table(:members) do |t|
       t.database_authenticatable :null => false
