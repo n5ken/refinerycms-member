@@ -1,0 +1,21 @@
+nb:
+  plugins:
+    members:
+      title: Members
+  admin:
+    members:
+      actions:
+        create_new: Lag en ny Member
+        reorder: Endre rekkefølgen på Members
+        reorder_done: Ferdig å endre rekkefølgen Members
+      records:
+        title: Members
+        sorry_no_results: Beklager! Vi fant ikke noen resultater.
+        no_items_yet: Det er ingen Members enda. Klikk på "Lag en ny Member" for å legge til din første member.
+      member:
+        view_live_html: Vis hvordan denne member ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+        edit: Rediger denne member
+        delete: Fjern denne member permanent
+  members:
+    show:
+      other: Andre Members

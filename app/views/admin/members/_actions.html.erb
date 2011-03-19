@@ -1,0 +1,28 @@
+<ul>
+  <% if Admin::MembersController.searchable? %>
+    <li>
+      <%= render :partial => "/shared/admin/search",
+                  :locals => {
+                    :url => admin_members_url
+                  } %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), new_admin_member_url,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? and Admin::MembersController.sortable? and Member.count > 1 %>
+  <li>
+    <%= link_to t('.reorder', :what => "Members"),
+                 admin_members_url,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Members"),
+                 admin_members_url,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

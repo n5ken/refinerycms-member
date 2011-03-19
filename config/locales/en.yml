@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    members:
+      title: Members
+  admin:
+    members:
+      actions:
+        create_new: Add New Member
+        reorder: Reorder Members
+        reorder_done: Done Reordering Members
+      records:
+        title: Members
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Members yet. Click "Add New Member" to add your first member.
+      member:
+        view_live_html: View this member live <br/><em>(opens in a new window)</em>
+        edit: Edit this member
+        delete: Remove this member forever
+  members:
+    show:
+      other: Other Members

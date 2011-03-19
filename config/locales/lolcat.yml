@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    members:
+      title: Members
+  admin:
+    members:
+      actions:
+        create_new: CREATE NEW Member
+        reorder: REORDR Members
+        reorder_done: DUN REORDERIN Members
+      records:
+        title: Members
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Members YET. CLICK "CREATE NEW Member" 2 ADD UR FURST member.
+      member:
+        view_live_html: VIEW DIS member LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS member
+        delete: REMOOV DIS member FOREVR
+  members:
+    show:
+      other: OTHR Members

@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    members:
+      title: Members
+  admin:
+    members:
+      actions:
+        create_new: Maak een nieuwe Member
+        reorder: Wijzig de volgorde van de Members
+        reorder_done: Klaar met het wijzingen van de volgorde van de Members
+      records:
+        title: Members
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen Members. Druk op 'Maak een nieuwe Member' om de eerste aan te maken.
+      member:
+        view_live_html: Bekijk deze member op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze member
+        delete: Verwijder deze member voor eeuwig
+  members:
+    show:
+      other: Andere Members
