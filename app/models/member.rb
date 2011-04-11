@@ -13,6 +13,16 @@ class Member < ActiveRecord::Base
 
   validates :username, :presence => true, :uniqueness => true
 
+  before_save :validate_username_and_email_is_uniqueness
+
+private
+
+  def validate_username_and_email_is_uniqueness
+    if find_record login
+      errors.add(:username, 'the username have been taken')
+    end
+  end
+
 protected
 
   def self.find_for_database_authentication(conditions)
