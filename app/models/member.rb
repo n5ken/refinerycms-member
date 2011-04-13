@@ -13,13 +13,13 @@ class Member < ActiveRecord::Base
 
   validates :username, :presence => true, :uniqueness => true
 
-  before_save :validate_username_and_email_is_uniqueness
+  before_validation_on_create :validate_username_and_email_is_uniqueness
 
 private
 
   def validate_username_and_email_is_uniqueness
-    if find_record login
-      errors.add(:username, 'the username have been taken')
+    if Member.find_record username
+      errors.add(:username, 'has already been taken')
     end
   end
 
@@ -34,39 +34,39 @@ protected
   # password instructions to it. If not user is found, returns a new user
   # with an email not found error.
   def self.send_reset_password_instructions(attributes={})
-   recoverable = find_recoverable_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
-   recoverable.send_reset_password_instructions if recoverable.persisted?
-   recoverable
+    recoverable = find_recoverable_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
+    recoverable.send_reset_password_instructions if recoverable.persisted?
+    recoverable
   end 
 
   def self.find_recoverable_or_initialize_with_errors(required_attributes, attributes, error=:invalid)
-   case_insensitive_keys.each { |k| attributes[k].try(:downcase!) }
+    case_insensitive_keys.each { |k| attributes[k].try(:downcase!) }
 
-   attributes = attributes.slice(*required_attributes)
-   attributes.delete_if { |key, value| value.blank? }
+    attributes = attributes.slice(*required_attributes)
+    attributes.delete_if { |key, value| value.blank? }
 
-   if attributes.size == required_attributes.size
-	   if attributes.has_key?(:login)
-	      login = attributes.delete(:login)
-	      record = find_record(login)
-	   else  
-	     record = where(attributes).first
-	   end  
-   end  
+    if attributes.size == required_attributes.size
+      if attributes.has_key?(:login)
+        login = attributes.delete(:login)
+        record = find_record(login)
+      else  
+        record = where(attributes).first
+      end  
+    end  
 
-   unless record
-	   record = new
+    unless record
+      record = new
 
-	   required_attributes.each do |key|
-	     value = attributes[key]
-	     record.send("#{key}=", value)
-	     record.errors.add(key, value.present? ? error : :blank)
-	   end  
-   end  
-   record
+      required_attributes.each do |key|
+        value = attributes[key]
+        record.send("#{key}=", value)
+        record.errors.add(key, value.present? ? error : :blank)
+      end  
+    end  
+    record
   end
 
   def self.find_record(login)
-   where(["username = :value OR email = :value", { :value => login }]).first
+    where(["username = :value OR email = :value", { :value => login }]).first
   end
 end
