@@ -22,4 +22,5 @@ en:
         delete: Remove this member forever
   members:
     show:
+      need_login: This page require member login first and continue
       other: Other Members

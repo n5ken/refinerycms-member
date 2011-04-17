@@ -16,9 +16,12 @@ class PagesController < ApplicationController
   #   GET /about/mission
   #
   def show
-    redirect_to '/members/sign_in' and return unless member_signed_in?
-
     @page = Page.find("#{params[:path]}/#{params[:id]}".split('/').last)
+
+    if @page.need_login and !member_signed_in?
+      flash[:notice] = I18n.t("members.need_login")
+      redirect_to '/members/sign_in' and return 
+    end
 
     if @page.try(:live?) || (refinery_user? && current_user.authorized_plugins.include?("refinery_pages"))
       # if the admin wants this to be a "placeholder" page which goes to its first child, go to that instead.
