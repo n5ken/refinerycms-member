@@ -18,7 +18,7 @@ Open up your ``Gemfile`` and add at the bottom this line:
 
 Now, run ``bundle install``
 
-Next, to install the blog plugin run:
+Next, to install the member plugin run:
 
     rails generate refinerycms_member
 
