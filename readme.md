@@ -20,7 +20,7 @@ Now, run ``bundle install``
 
 Next, to install the member plugin run:
 
-    rails generate refinerycms_member
+    rails generate refinerycms_members
 
 Finally migrate your database and you're done.
 
