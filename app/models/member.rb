@@ -67,9 +67,6 @@ protected
   end
 
   def self.find_record(login)
-puts "xxxxxxxxxxxxxxx"
-puts login
-puts "xxxxxxxxxxxxxxx"
     where(["username = :value OR email = :value", { :value => login }]).first
   end
 end
