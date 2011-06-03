@@ -13,7 +13,7 @@ class Member < ActiveRecord::Base
 
   validates :username, :presence => true, :uniqueness => true
 
-  before_validation_on_create :validate_username_and_email_is_uniqueness
+  before_validation :validate_username_and_email_is_uniqueness, :on => :create
 
 private
 
@@ -67,6 +67,9 @@ protected
   end
 
   def self.find_record(login)
+puts "xxxxxxxxxxxxxxx"
+puts login
+puts "xxxxxxxxxxxxxxx"
     where(["username = :value OR email = :value", { :value => login }]).first
   end
 end
