@@ -2,7 +2,10 @@ class Member < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :case_insensitive_keys => [ :login ],
+         :reset_password_keys => [ :login ]
+
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -40,7 +43,7 @@ protected
   end 
 
   def self.find_recoverable_or_initialize_with_errors(required_attributes, attributes, error=:invalid)
-    case_insensitive_keys.each { |k| attributes[k].try(:downcase!) }
+    (case_insensitive_keys || []).each { |k| attributes[k].try(:downcase!) }
 
     attributes = attributes.slice(*required_attributes)
     attributes.delete_if { |key, value| value.blank? }
