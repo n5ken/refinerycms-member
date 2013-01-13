@@ -1,4 +1,4 @@
-Refinery::Core::Engine.routes.prepend do
+Refinery::Core::Engine.routes.draw do
   devise_for :members, :class_name => "Refinery::Member"
 
   namespace :admin, :path => 'refinery' do
