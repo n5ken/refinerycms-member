@@ -1,11 +1,9 @@
-Refinery::Application.routes.draw do
+Refinery::Core::Engine.routes.prepend do
   devise_for :members
 
-  scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
+  namespace :admin, :path => 'refinery' do
     resources :members, :except => :show do
-      collection do
-        post :update_positions
-      end
+      post :update_positions, :on => :collection
     end
   end
 end
