@@ -1,6 +1,6 @@
 class CreateMembers < ActiveRecord::Migration
   def change
-    create_table(:members) do |t|
+    create_table(:refinery_members) do |t|
       t.string :username
 
       t.string :email,              :null => false, :default => ""
@@ -20,7 +20,7 @@ class CreateMembers < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :members, :email,                :unique => true
-    add_index :members, :reset_password_token, :unique => true
+    add_index :refinery_members, :email,                :unique => true
+    add_index :refinery_members, :reset_password_token, :unique => true
   end
 end
