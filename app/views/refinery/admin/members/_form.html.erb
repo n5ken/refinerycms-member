@@ -1,5 +1,5 @@
 <%= form_for [:admin, @member] do |f| -%>
-  <%= render :partial => "/shared/admin/error_messages", :locals => {
+  <%= render :partial => "/refinery/shared/admin/error_messages", :locals => {
           :object => @member,
           :include_object_name => true
         } %>
@@ -9,7 +9,7 @@
     <%= f.text_field :email, :class => 'larger widest' -%>
   </div>
   
-  <%= render :partial => "/shared/admin/form_actions",
+  <%= render :partial => "/refinery/shared/admin/form_actions",
               :locals => {
                 :f => f,
                 :continue_editing => false,
