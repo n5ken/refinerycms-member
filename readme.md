@@ -27,3 +27,8 @@ Finally migrate your database and you're done.
     
     # Sign up for a http://rubygems.org/ account and publish the gem
     gem push refinerycms-members.gem
+
+# Authors
+
+  - [n5ken](https://github.com/n5ken)
+  - [Slava Kravchenko](https://github.com/cordawyn)
