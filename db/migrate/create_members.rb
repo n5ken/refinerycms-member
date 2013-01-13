@@ -1,5 +1,5 @@
 class CreateMembers < ActiveRecord::Migration
-  def self.up
+  def change
     create_table(:members) do |t|
       t.string :username
 
@@ -19,9 +19,5 @@ class CreateMembers < ActiveRecord::Migration
     add_index :members, :reset_password_token, :unique => true
     # add_index :members, :confirmation_token,   :unique => true
     # add_index :members, :unlock_token,         :unique => true
-  end
-
-  def self.down
-    drop_table :members
   end
 end
