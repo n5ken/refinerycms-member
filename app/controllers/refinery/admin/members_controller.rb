@@ -1,8 +1,8 @@
-module Admin
-  class MembersController < Admin::BaseController
-
-    crudify :member,
-            :title_attribute => 'email', :xhr_paging => true
-
+module Refinery
+  module Admin
+    class MembersController < Refinery::AdminController
+      crudify :member,
+      :title_attribute => 'email', :xhr_paging => true
+    end
   end
 end

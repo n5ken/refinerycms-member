@@ -1,5 +1,5 @@
 module Refinery
-  class MembersController < ApplicationController
+  class MembersController < ::ApplicationController
     before_filter :find_all_members
     before_filter :find_page
 
