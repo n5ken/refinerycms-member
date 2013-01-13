@@ -13,11 +13,6 @@ module Refinery
       migrate_database!
     end
 
-    def generate_members_initializer
-      template "config/initializers/refinery/members.rb.erb", File.join(destination_root, "config", "initializers", "refinery", "members.rb")
-    end
-
-
     private
 
     def migrate_database!
