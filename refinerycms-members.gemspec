@@ -12,4 +12,5 @@ Gem::Specification.new do |s|
   s.require_paths = %w(lib)
 
   s.add_dependency "refinerycms", "~> 2.0.0"
+  s.add_dependency "refinerycms-pages", "~> 2.0.0"
 end
