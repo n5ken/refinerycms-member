@@ -25,6 +25,10 @@ module Refinery
         end
       end
 
+      initializer "load refinery_members engine after refinery_pages engine" do |app|
+        app.config.railties_order = [Pages::Engine, Members::Engine]
+      end
+
       config.after_initialize do
         Refinery.register_extension(Refinery::Members)
       end
