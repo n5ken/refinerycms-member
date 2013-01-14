@@ -16,6 +16,15 @@ Next, to install the members plugin run:
 
     rails generate refinery:members
 
+Note that the above task copies `*.refinery_members.rb` migration files to your `db/migrate` directory.
+You should examine `*_create_members.refinery_members.rb` file and adjust it (if necessary)
+to enable or disable Devise strategies and options that are appropriate for your flavor of members.
+
+You should also note that refinery_members uses a modified `PagesController` from `refinerycms-pages` gem.
+If you have your own modified copy of that controller, you should adjust it to handle pages that
+require a member to be logged in. Take a look at `PagesController#current_user_can_view_page?` method
+in `app/controllers/refinery/pages_controller.rb` for reference.
+
 Finally migrate your database and you're done.
 
     rake db:migrate
