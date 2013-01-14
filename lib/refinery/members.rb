@@ -6,6 +6,8 @@ module Refinery
   module Members
     require "refinery/members/engine"
 
+    autoload :InstanceMethods, "refinery/members/instance_methods"
+
     class << self
       def root
         @root ||= Pathname.new(File.expand_path('../../../', __FILE__))

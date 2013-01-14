@@ -7,11 +7,15 @@ module Refinery
 
       config.autoload_paths += %W( #{config.root}/lib )
 
+      after_inclusion do
+        Refinery::PagesController.send :include, Refinery::Members::InstanceMethods
+      end
+
       initializer "register refinery_images plugin" do
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
           plugin.name = "refinery_members"
-          plugin.version = %q{0.3.1}
+          plugin.version = %q{0.2.1}
           plugin.menu_match = %r{refinery/member(_dialog)?s$}
           plugin.activity = {
             :class_name => :"refinery/member",
