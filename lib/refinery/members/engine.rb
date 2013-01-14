@@ -25,7 +25,7 @@ module Refinery
         end
       end
 
-      initializer "load refinery_members engine after refinery_pages engine" do |app|
+      config.before_configuration do |app|
         app.config.railties_order = [Pages::Engine, Members::Engine]
       end
 
