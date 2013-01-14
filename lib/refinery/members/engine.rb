@@ -26,7 +26,7 @@ module Refinery
       end
 
       config.before_configuration do |app|
-        app.config.railties_order = [Pages::Engine, Members::Engine]
+        app.config.railties_order = [Members::Engine, Pages::Engine, :all, :main_app]
       end
 
       config.after_initialize do
