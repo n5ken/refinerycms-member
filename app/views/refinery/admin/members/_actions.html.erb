@@ -1,22 +1,18 @@
 <ul>
-  <% if Refinery::Admin::MembersController.searchable? %>
-    <li>
-      <%= render '/refinery/admin/search', :url => refinery.admin_members_path %>
-    </li>
-  <% end %>
   <li>
-    <%= link_to t('.create_new'), new_admin_member_url,
+    <%= render '/refinery/admin/search', :url => refinery.admin_members_path %>
+  </li>
+  <li>
+    <%= link_to t('.create_new_member'), refinery.new_admin_member_path,
                  :class => "add_icon" %>
   </li>
-<% if !searching? and Refinery::Admin::MembersController.sortable? and Refinery::Member.count > 1 %>
+<% if @members.many? && !searching? %>
   <li>
-    <%= link_to t('.reorder', :what => "Members"),
-                 admin_members_url,
+    <%= link_to t('.reorder_members'), refinery.admin_members_path,
                  :id => "reorder_action",
                  :class => "reorder_icon" %>
 
-    <%= link_to t('.reorder_done', :what => "Members"),
-                 admin_members_url,
+    <%= link_to t('.reorder_members_done'), refinery.admin_members_path,
                  :id => "reorder_action_done",
                  :style => "display: none;",
                  :class => "reorder_icon" %>

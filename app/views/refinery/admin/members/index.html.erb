@@ -1,10 +1,7 @@
 <section id='records'>
-  <%= render :partial => 'records' %>
+  <%= render 'records' %>
 </section>
-<aside id='actions'>
-  <%= render :partial => 'actions' %>
-</aside>
-<%= render :partial => '/refinery/shared/admin/make_sortable',
-            :locals => {
-              :tree => false
-            } if !searching? and Refinery::Admin::MembersController.sortable? and Refinery::Member.count > 1 %>
+<section id='actions'>
+  <%= render 'actions' %>
+</section>
+<%= render '/refinery/admin/make_sortable', :tree => false if @members.many? -%>
