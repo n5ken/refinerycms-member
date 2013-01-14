@@ -31,6 +31,43 @@ Finally migrate your database and you're done.
 
     rake db:migrate
 
+## Testing
+
+Refinery-members uses refinery-testing gem for testing.
+Follow the guidelines at http://refinerycms.com/guides/testing to setup the dummy app.
+However, I couldn't get `rake spec` to work as easily as suggested at the guidelines.
+If (after completing all previous steps) you find that `rake spec` does not work for you,
+here's what you can do:
+
+Create `lib/tasks/rspec.rake` containing:
+
+    require "rspec/core/rake_task"
+    RSpec::Core::RakeTask.new
+
+Dummy app needs some love too:
+
+    cd spec/dummy
+    rails g refinery:testing
+
+At this step you should have `Guardfile` in `spec/dummy` and `spec_helper.rb` in `spec/dummy/spec`.
+
+    rake db:test:prepare
+
+Now we're done with the final steps of setting up the dummy app.
+You can go back from `spec/dummy` to the root directory of your engine:
+
+    cd ../..
+
+Place your specs in `spec` directory, as usual. Run the tests as follows:
+
+    rake app:spec SPEC_OPTS="-Ispec/dummy/spec"
+
+Apparently, one can add the finalizing steps in your `Rakefile`, by creating
+`refinery:testing:setup_extension` task as suggested in `lib/refinery/tasks/testing.rake` file
+of `refinery-testing` gem. You can also avoid adding `SPEC_OPTS` to your `app:spec` invocation
+by creating your "local" `spec/spec_helper.rb` and "require"-ing `spec/dummy/spec/spec_helper.rb`
+from it. (The "-I" option is only needed to pull dummy's `spec_helper.rb`).
+
 ## How to build this engine as a gem
 
     gem build refinerycms-members.gemspec
