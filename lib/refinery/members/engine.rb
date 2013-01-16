@@ -25,10 +25,6 @@ module Refinery
         end
       end
 
-      config.before_configuration do |app|
-        app.config.railties_order = [Members::Engine, Pages::Engine, :all, :main_app]
-      end
-
       config.after_initialize do
         Refinery.register_extension(Refinery::Members)
       end
