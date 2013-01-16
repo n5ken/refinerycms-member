@@ -1,9 +1,8 @@
 require "spec_helper"
 
 describe Refinery::Members::SessionsController do
-  login_refinery_superuser
-
   before do
+    FactoryGirl.create(:refinery_user)
     @request.env["devise.mapping"] = Devise.mappings[:member]
   end
 
@@ -11,5 +10,7 @@ describe Refinery::Members::SessionsController do
     subject { get :new }
 
     it { should be_success }
+
+    it { should have_css "form[action='/members/sign_in']" }
   end
 end
