@@ -2,7 +2,7 @@
 
 Simple member engine for [Refinery CMS](http://refinerycms.com). It supports member management and page privilege setting.
 
-This version of `refinerycms-members` supports Rails 3.2.x, development for RefineryCMS 2.0 and above.
+This version of `refinerycms-members` supports Rails 3.2.x, RefineryCMS 2.0 and above.
 
 ## Install
 
