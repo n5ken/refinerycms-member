@@ -10,7 +10,5 @@ describe Refinery::Members::SessionsController do
     subject { get :new }
 
     it { should be_success }
-
-    it { should have_css "form[action='/members/sign_in']" }
   end
 end
