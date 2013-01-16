@@ -4,6 +4,7 @@ module Refinery
       include Refinery::Engine
 
       engine_name :refinery_members
+      isolate_namespace Refinery::Members
 
       config.autoload_paths += %W( #{config.root}/lib )
 
@@ -14,7 +15,7 @@ module Refinery
       initializer "register refinery_members plugin" do
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
-          plugin.name = "refinery_members"
+          plugin.name = "members"
           plugin.menu_match = %r{refinery\/members(\/.+?)?$}
           plugin.activity = {
             :class_name => :"refinery/members/member",

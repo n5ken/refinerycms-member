@@ -5,7 +5,7 @@ en:
         image: image
   refinery:
     plugins:
-      refinery_members:
+      members:
         title: Members
     admin:
       members:
@@ -21,7 +21,7 @@ en:
           no_members_yet: There are no Members yet. Click "Add New Member" to add your first member.
           title: Members
           sorry_no_results: Sorry! There are no results found.
-    refinery_members:
+    members:
       show:
         need_login: You must be a logged-in member to view this page
         other: Other Members
