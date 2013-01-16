@@ -1,18 +1,18 @@
 <ul>
   <li>
-    <%= render '/refinery/admin/search', :url => refinery.admin_members_path %>
+    <%= render '/refinery/admin/search', :url => refinery.members_admin_members_path %>
   </li>
   <li>
-    <%= link_to t('.create_new_member'), refinery.new_admin_member_path,
+    <%= link_to t('.create_new_member'), refinery.new_members_admin_member_path,
                  :class => "add_icon" %>
   </li>
 <% if @members.many? && !searching? %>
   <li>
-    <%= link_to t('.reorder_members'), refinery.admin_members_path,
+    <%= link_to t('.reorder_members'), refinery.members_admin_members_path,
                  :id => "reorder_action",
                  :class => "reorder_icon" %>
 
-    <%= link_to t('.reorder_members_done'), refinery.admin_members_path,
+    <%= link_to t('.reorder_members_done'), refinery.members_admin_members_path,
                  :id => "reorder_action_done",
                  :style => "display: none;",
                  :class => "reorder_icon" %>

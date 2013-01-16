@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "/refinery/admin/members/index" do
+describe "/refinery/members/admin/members/index" do
   subject { render }
 
   let(:member) { FactoryGirl.create(:refinery_member) }

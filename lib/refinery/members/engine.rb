@@ -11,17 +11,16 @@ module Refinery
         Refinery::PagesController.send :include, Refinery::Members::InstanceMethods
       end
 
-      initializer "register refinery_images plugin" do
+      initializer "register refinery_members plugin" do
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
           plugin.name = "refinery_members"
-          plugin.version = %q{0.2.1}
-          plugin.menu_match = %r{refinery/member(_dialog)?s$}
+          plugin.menu_match = %r{refinery\/members(\/.+?)?$}
           plugin.activity = {
-            :class_name => :"refinery/member",
+            :class_name => :"refinery/members/member",
             :title => "email"
           }
-          plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.admin_members_path }
+          plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.members_admin_members_path }
         end
       end
 
