@@ -1,8 +1,6 @@
 class CreateMembers < ActiveRecord::Migration
   def change
     create_table(:refinery_members) do |t|
-      t.string :username
-
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
 
