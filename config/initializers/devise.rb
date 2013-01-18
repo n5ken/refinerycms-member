@@ -22,7 +22,7 @@ require 'devise'
   # authenticating an user, both parameters are required. Remember that those
   # parameters are used only when authenticating and not when retrieving from
   # session. If you need permissions, you should implement that in a before filter.
-  # config.authentication_keys = [ :email ]
+  config.authentication_keys = [ :email ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # config.params_authenticatable = true
@@ -113,7 +113,7 @@ require 'devise'
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes.
-  # config.default_scope = :user
+  config.default_scope = :member
 
   # Configure sign_out behavior.
   # By default sign_out is scoped (i.e. /users/sign_out affects only :user scope).
