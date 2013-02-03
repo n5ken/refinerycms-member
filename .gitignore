@@ -1,0 +1,7 @@
+*~
+.*~
+
+/bin
+*.gem
+/.bundle
+/spec/dummy

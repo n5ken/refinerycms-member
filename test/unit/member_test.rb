@@ -1,8 +1,7 @@
 require 'test_helper'
 
-class MemberTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+describe Refinery::Member do
+  subject { Refinery::Member.new }
+
+  it { should_not be_valid }
 end
