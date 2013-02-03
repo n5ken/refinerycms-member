@@ -1,27 +1,24 @@
 en:
-  shared:
-    admin:
-      image_picker:
-        image: image
   refinery:
     plugins:
       members:
         title: Members
-    admin:
-      members:
-        delete: Remove this member forever
-        edit: Edit this member
-        actions:
-          create_new_member: Add New Member
-          reorder_members: Reorder Members
-          reorder_members_done: Done Reordering Members
-        member:
-          view_live_html: View this member live <br/><em>(opens in a new window)</em>
-        records:
-          no_members_yet: There are no Members yet. Click "Add New Member" to add your first member.
-          title: Members
-          sorry_no_results: Sorry! There are no results found.
     members:
-      show:
-        need_login: You must be a logged-in member to view this page
-        other: Other Members
+      admin:
+        members:
+          actions:
+            create_new: Add New Member
+            reorder: Reorder Members
+            reorder_done: Done Reordering Members
+          member:
+            delete: Remove this member forever
+            edit: Edit this member
+            view_live_html: View this member live <br/><em>(opens in a new window)</em>
+          records:
+            no_items_yet: There are no Members yet. Click "Add New Member" to add your first member.
+            title: Members
+            sorry_no_results: Sorry! There are no results found.
+      members:
+        show:
+          need_login: You must be a logged-in member to view this page
+          other: Other Members
