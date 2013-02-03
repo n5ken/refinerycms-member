@@ -1,0 +1,7 @@
+<section id='records'>
+  <%= render 'records' %>
+</section>
+<section id='actions'>
+  <%= render 'actions' %>
+</section>
+<%= render '/refinery/admin/make_sortable', :tree => false if @members.many? -%>
